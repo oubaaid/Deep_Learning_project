@@ -57,7 +57,7 @@ resource "aws_route_table_association" "public" {
 
 # Define an S3 bucket for storing images
 resource "aws_s3_bucket" "image_classification" {
-  bucket = "image-classification-bucket"
+  bucket = "cf-templates-1mams80hw7zca-us-west-2"
 }
 
 # Define an SQS queue for message processing
@@ -131,10 +131,10 @@ resource "aws_s3_bucket_notification" "bucket_notification" {
 
 # Define an EC2 instance for image classification processing
 resource "aws_instance" "image_classification_ec2" {
-  ami                         = "ami-0c55b159cbfafe1f0"  # Update with actual Deep Learning AMI ID for eu-west-3
+  ami                         = "ami-064f9ddb383168b5e"  # Update with actual Deep Learning AMI ID for eu-west-3 - done
   instance_type               = "p3.2xlarge"
   subnet_id                   = aws_subnet.public.id
-  key_name                    = "your-key-pair"  # Update with your EC2 Key Pair
+  key_name                    = "hakunamatata"  # Update with your EC2 Key Pair - done
   associate_public_ip_address = true
 
   user_data = base64encode(
